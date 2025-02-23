@@ -2,7 +2,6 @@ import Chat from './components/Chat';
 import Header from "@/components/Header"
 import Footer from "@/components/Footer"
 import FarmingBackground from "@/components/FarmingBackground"
-import ChatBot from '@/components/ChatBot'
 
 export default function Home() {
   return (
