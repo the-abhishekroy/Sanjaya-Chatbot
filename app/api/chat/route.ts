@@ -1,5 +1,6 @@
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 import { Configuration, OpenAIApi } from 'openai-edge';
+import { getApiKey } from '@/config/api';
 
 export const runtime = 'edge';
 
@@ -11,24 +12,23 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export async function POST(req: Request) {
+  const API_KEY = getApiKey();
+  
   try {
-    const { messages } = await req.json();
-
-    const response = await openai.createChatCompletion({
-      model: 'dhenu2-in-8b-preview',
-      messages,
-      stream: true,
+    const body = await req.json();
+    const response = await fetch('https://api.dhenu.ai/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify(body)
     });
-
-    const stream = OpenAIStream(response);
-    return new StreamingTextResponse(stream);
     
+    const data = await response.json();
+    return new Response(JSON.stringify(data));
   } catch (error) {
-    console.error('Chat API Error:', error);
-    return new Response(
-      JSON.stringify({ error: 'Internal server error' }), 
-      { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    return new Response('Error processing your request', { status: 500 });
   }
 }
 

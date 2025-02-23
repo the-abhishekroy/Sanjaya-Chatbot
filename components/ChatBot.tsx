@@ -6,11 +6,32 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Loader2, Send } from "lucide-react"
 import { motion } from "framer-motion"
+import { getApiKey } from '@/config/api';
 
 export default function ChatBot() {
   const { messages, input, handleInputChange, handleSubmit, isLoading, error } = useChat({
     api: "/api/chat",
   })
+
+  const handleSendMessage = async () => {
+    const API_KEY = getApiKey();
+    
+    try {
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          messages: messages,
+          apiKey: API_KEY
+        })
+      });
+      // ...rest of your code...
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
