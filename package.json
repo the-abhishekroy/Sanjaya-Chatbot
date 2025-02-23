@@ -1,12 +1,15 @@
 {
-  "name": "my-v0-project",
+  "name": "Sanjaya",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "tailwind:init": "tailwindcss init -p",
+    "tailwind:build": "tailwindcss build -i ./app/globals.css -o ./app/output.css",
+    "tailwind:watch": "tailwindcss -i ./app/globals.css -o ./app/output.css --watch"
   },
   "dependencies": {
     "@emotion/is-prop-valid": "latest",
@@ -40,7 +43,6 @@
     "@radix-ui/react-tooltip": "^1.1.6",
     "@vercel/analytics": "^1.1.1",
     "ai": "^2.2.0",
-    "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.0.4",
@@ -49,12 +51,12 @@
     "framer-motion": "^12.4.7",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
-    "next": "^14.0.0",
+    "next": "latest",
     "next-themes": "^0.4.4",
     "openai-edge": "^1.2.0",
-    "react": "^18",
+    "react": "latest",
     "react-day-picker": "8.10.1",
-    "react-dom": "^18",
+    "react-dom": "latest",
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.0",
@@ -68,8 +70,9 @@
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.17",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
 }

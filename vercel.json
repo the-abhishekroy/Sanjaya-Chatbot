@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_FORCE_REFRESH": "true"
+    }
+  },
+  "buildCommand": "npm run tailwind:build && next build"
+}
