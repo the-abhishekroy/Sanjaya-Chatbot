@@ -23,30 +23,39 @@ Sanjaya is an intelligent chatbot designed to assist farmers in **Northeast Indi
 ## 📂 File Structure
 
 ```
-|   README.md
-|   .env.example
-|
-+---public
-|       banner.png
-|       screenshot1.png
-|       screenshot2.png
-|
-+---src
-|   |   app.js
-|   |   index.js
-|   |
-|   +---components
-|   |       ChatInterface.js
-|   |       WeatherWidget.js
-|   |
-|   \---services
-|           api.js
-|
-+---styles
-|       global.css
-|
-\---utils
-        helpers.js
+Sanjaya-Chatbot/
+├── app/
+│   ├── api/
+│   │   └── chat/
+│   │       └── route.ts
+│   ├── components/
+│   │   ├── Chat.tsx
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   └── FarmingBackground.tsx
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   └── ui/
+│       ├── button.tsx
+│       ├── card.tsx
+│       ├── input.tsx
+│       └── scroll-area.tsx
+├── public/
+│   ├── banner.png
+│   ├── screenshot1.png
+│   └── screenshot2.png
+├── styles/
+│   └── globals.css
+├── .env.example
+├── .env.local
+├── .gitignore
+├── LICENSE
+├── README.md
+├── next.config.js
+├── package.json
+├── postcss.config.js
+└── tailwind.config.js
 ```
 
 ## 🚀 Installation & Setup
